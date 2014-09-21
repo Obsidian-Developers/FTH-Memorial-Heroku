@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :caskets
+
   get 'static_demo/home'
 
   get 'store' => 'static_demo#store'

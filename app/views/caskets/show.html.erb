@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Template:</strong>
+  <%= @casket.template %>
+</p>
+
+<p>
+  <strong>Text1:</strong>
+  <%= @casket.text1 %>
+</p>
+
+<%= image_tag @casket.image1.url %>
+<%= image_tag @casket.image2.url %>
+<%= image_tag @casket.image3.url %>
+<%= image_tag @casket.image4.url %>
+<%= image_tag @casket.image5.url %>
+
+<%= link_to 'Edit', edit_casket_path(@casket) %> |
+<%= link_to 'Back', caskets_path %>
