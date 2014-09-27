@@ -3,5 +3,6 @@ class StaticDemoController < ApplicationController
   end
 
   def store
+  	@products = ShopItem.all
   end
 end
