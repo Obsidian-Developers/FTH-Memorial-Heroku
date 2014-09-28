@@ -10,6 +10,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<%= csrf_meta_tags %> 
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/jquery.dropotron.min.js"></script>
 		<script src="/js/jquery.scrolly.min.js"></script>
@@ -26,6 +27,7 @@
 		<link rel="stylesheet" type="text/css" href="/css/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="/css/css/component.css" />
 		<script src="/js/js/modernizr.custom.js"></script>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<style type="text/css">
 		li.tooltips {
 		  position: relative;
@@ -62,6 +64,7 @@
 		  z-index: 999;
 		}
 		</style>
+
 	</head>
 	<body class="left-sidebar">
 
@@ -151,6 +154,7 @@
 							<figure>
 								<figcaption>
 									<h3><%= product.name %></h3>
+									 <div><%= link_to 'Add to cart', shopping_cart_path(:product_id => product), method: :post %></div>
 									<p><%= product.price %></p>
 									<p><%= product.details %></p>
 								</figcaption>

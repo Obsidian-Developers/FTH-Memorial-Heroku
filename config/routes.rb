@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  #Shopping Cart Master Routing
+  resource :shopping_cart
+
+  #Shopping Cart methods
+  get 'shopping_carts/clear', as: 'clear_cart' #Clear Cart
+  get 'shopping_carts/remove', as: 'remove_cart_item' #Remove Individual Item
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :caskets
