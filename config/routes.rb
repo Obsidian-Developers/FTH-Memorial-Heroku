@@ -6,19 +6,23 @@ Rails.application.routes.draw do
   #Shopping Cart methods
   get 'shopping_carts/clear', as: 'clear_cart' #Clear Cart
   get 'shopping_carts/remove', as: 'remove_cart_item' #Remove Individual Item
+  get 'shopping_carts/checkout', as: 'checkout_cart' #Initiate Checkout Process
+  patch 'shopping_carts/finalize', as: 'finalize_order' #Complete Checkout Process (gather payment info)
 
+  #Devise Routing for Admin
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :caskets
 
+  #Static Routing
   get 'static_demo/home'
-
   get 'store' => 'static_demo#store'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+   #Root Routing
    root 'static_demo#home'
 
   # Example of regular route:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927232105) do
+ActiveRecord::Schema.define(version: 20140928140446) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 20140927232105) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "shop_orders", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "shopping_cart_id"
+    t.boolean  "paid"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shopping_cart_items", force: true do |t|
     t.integer  "owner_id"
     t.string   "owner_type"
@@ -100,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140927232105) do
   create_table "shopping_carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "ordered",    default: false
   end
 
 end

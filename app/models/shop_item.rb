@@ -9,7 +9,7 @@ end
 #
 #  id                 :integer         not null, primary key
 #  name               :string(255)
-#  price              :string(255)
+#  price              :float(255)
 #  category           :string(255)
 #  details            :string(255)
 #  created_at         :datetime

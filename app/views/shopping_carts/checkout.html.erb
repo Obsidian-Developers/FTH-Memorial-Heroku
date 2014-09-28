@@ -1,0 +1,29 @@
+<h1>Checkout</h1>
+
+<p>Review your order:</p>
+<table>
+  <tr>
+    <td>Item</td>
+    <td>Quantity</td> 
+    <td>Price</td>
+  </tr>
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= item.item.name %></td>
+    <td><%= item.quantity %></td> 
+    <td><%=number_to_currency item.item.price %></td>
+  </tr>
+  <% end %>
+</table>
+
+<div><b>SubTotal:</b><%= number_to_currency @shopping_cart.subtotal %></div>
+<div><b>Taxes:</b><%= number_to_currency @shopping_cart.taxes %></div>
+<div><b>Total:</b><%= number_to_currency @shopping_cart.total %></div>
+
+<%= link_to "Edit Cart", shopping_cart_path %>
+<p>All good? Fill out the form below to checkout</p>
+
+<%= form_for @order, url: finalize_order_path(:order => @order.id) do |f| %>
+	<%= f.text_field :email, :placeholder => 'Email' %>
+	<%= f.submit "Submit Order for Processing" %>
+<% end %>
