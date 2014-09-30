@@ -8,6 +8,14 @@ class ShoppingCartsController < ApplicationController
     redirect_to shopping_cart_path
   end
 
+  # def add_casket
+  #   @product = Casket.find(params[:product_id])
+  #   @shopping_cart.add(@product, @product.price)
+  #   puts "Post Method Executed Successfully"
+  #   redirect_to shopping_cart_path
+  # end
+
+
   def show
   	@items = @shopping_cart.shopping_cart_items
 
