@@ -140,7 +140,7 @@
 						<li>
 							<figure>
 								<%= image_tag product.photo %>
-								<figcaption><h3><%= product.name %></h3><p>Price :<%= product.price %></p></figcaption>
+								<figcaption><h3><%= product.name %></h3><p><%=number_to_currency product.price %></p></figcaption>
 							</figure>
 						</li>
 						<% end %>
@@ -155,7 +155,7 @@
 								<figcaption>
 									<h3><%= product.name %></h3>
 									 <div><%= link_to 'Add to cart', shopping_cart_path(:product_id => product), method: :post %></div>
-									<p><%= product.price %></p>
+									<p><%=number_to_currency product.price %></p>
 									<p><%= product.details %></p>
 								</figcaption>
 								<%= image_tag product.photo %>
