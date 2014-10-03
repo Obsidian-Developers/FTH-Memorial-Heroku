@@ -1,6 +1,6 @@
 class CasketsController < ApplicationController
-  before_action :set_casket, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_casket, only: [:show, :edit, :update, :destroy]  
+  before_action :extract_shopping_cart, only: [:create]
   # GET /caskets
   # GET /caskets.json
   def index
@@ -24,15 +24,20 @@ class CasketsController < ApplicationController
   def create
     @casket = Casket.new(casket_params)
 
-    respond_to do |format|
+
+    # respond_to do |format|
       if @casket.save
-        format.html { redirect_to @casket, notice: 'Casket was successfully created.' }
-        format.json { render :show, status: :created, location: @casket }
+        @item = CasketShopItem.create(:casket_id => @casket.id)
+        @shopping_cart.add(@item, @item.price)
+        puts "Post Method Executed Successfully"
+        redirect_to shopping_cart_path
+        # format.html { redirect_to @casket, notice: 'Casket was successfully created.' }
+        # format.json { render :show, status: :created, location: @casket }
       else
-        format.html { render :new }
-        format.json { render json: @casket.errors, status: :unprocessable_entity }
-      end
-    end
+        # format.html { render :new }
+        # format.json { render json: @casket.errors, status: :unprocessable_entity }
+      # end
+     end
   end
 
 
@@ -50,6 +55,16 @@ class CasketsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_casket
       @casket = Casket.find(params[:id])
+    end
+
+    def extract_shopping_cart
+      shopping_cart_id = session[:shopping_cart_id]
+      @shopping_cart = session[:shopping_cart_id] ? ShoppingCart.find(shopping_cart_id) : ShoppingCart.create
+    #Create new cart post-order 
+      if @shopping_cart.ordered?
+        @shopping_cart = ShoppingCart.create
+      end
+      session[:shopping_cart_id] = @shopping_cart.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

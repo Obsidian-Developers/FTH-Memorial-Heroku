@@ -1,0 +1,39 @@
+<table>
+	<tr style="font-weight: bold;">
+		<td>Time Placed</td>
+		<td>ID Number</td>
+		<td>Email</td>
+		<td>Price</td>
+		<td>Shopping Cart ID</td>
+		<td>Shopping Cart Hash</td>
+	</tr>
+	<% @orders.each do |order| %>
+	
+		<tr>
+			<td><%= order.created_at %></td>
+			<td><%= order.id %></td>
+			<td><%= order.email %></td>
+			<td><%=number_to_currency order.price %></td>
+			<td><%= order.shopping_cart_id %></td>
+			<td><%= ShoppingCart.find(order.shopping_cart_id) %></td>
+		</tr>
+		<tr>
+			<td>Shop Item Name</td>
+			<td>Quantity</td>
+			<td>Price</td>
+		</tr>
+			<% @cart_items = ShoppingCartItem.where(:owner_id => order.shopping_cart_id) %>
+			<% @cart_items.each do |item| %>
+				<% if item.item_type == "ShopItem" then @act = ShopItem.find(item.item_id); @name = @act.name else  @name = "Custom Casket" end %>
+				<tr>
+					<td><%= @name %></td>
+					<td><%= item.quantity %></td>
+					<td><%=number_to_currency item.price %></td>
+				</tr>
+			<% end %>
+		</tr>
+		<tr>
+			<%  %>
+		</tr>
+	<% end %>
+</table>

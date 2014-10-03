@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   #Static Routing
   get 'static_demo/home'
   get 'store' => 'static_demo#store'
+  get 'order_index' => 'static_demo#orders'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  casket_id: MyString
+  name: MyString
+  price: MyString
+
+two:
+  casket_id: MyString
+  name: MyString
+  price: MyString
