@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20140930185830) do
 
   create_table "shop_items", force: true do |t|
     t.string   "name"
-    t.float    "price",              limit: 255
     t.string   "category"
     t.string   "details"
     t.datetime "created_at"
@@ -92,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140930185830) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.float    "price"
   end
 
   create_table "shop_orders", force: true do |t|

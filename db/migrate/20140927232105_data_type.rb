@@ -1,5 +1,6 @@
 class DataType < ActiveRecord::Migration
   def change
-  	change_column :shop_items, :price, :float
+  	remove_column :shop_items, :price
+  	add_column :shop_items, :price, :float
   end
 end
