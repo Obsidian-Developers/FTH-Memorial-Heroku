@@ -1,5 +1,4 @@
 class ShoppingCartsController < ApplicationController
-  before_filter :extract_shopping_cart
 
   def create
     @product = ShopItem.find(params[:product_id])
@@ -67,17 +66,5 @@ class ShoppingCartsController < ApplicationController
   end
 
 
-private
-  def extract_shopping_cart
-    shopping_cart_id = session[:shopping_cart_id]
-    @shopping_cart = session[:shopping_cart_id] ? ShoppingCart.find(shopping_cart_id) : ShoppingCart.create
-  #Create new cart post-order 
-    if @shopping_cart.ordered?
-      @shopping_cart = ShoppingCart.create
-    end
-    session[:shopping_cart_id] = @shopping_cart.id
-  end
-  def final_params
-      params.require(:shop_order).permit!
-  end
+
 end

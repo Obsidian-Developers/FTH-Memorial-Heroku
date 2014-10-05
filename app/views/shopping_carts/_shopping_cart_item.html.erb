@@ -1,3 +1,3 @@
-<div>
-  <div><%= shopping_cart_item.quantity %> <%= shopping_cart_item.item.name %> <%=number_to_currency shopping_cart_item.item.price %> <%= link_to "Remove From Cart", remove_cart_item_path(:item_id => shopping_cart_item.item.id) %></div>
-</div>
+<li><%= shopping_cart_item.quantity %> <%= shopping_cart_item.item.name %><span style="color: rgba(128,128,128,0.75); font-size: 0.8em;">
+	<br><%=number_to_currency shopping_cart_item.item.price %> per unit</span> <a href="" style="font-size: 0.8em; margin-left:1em"><%= link_to "Remove From Cart", remove_cart_item_path(:item_id => shopping_cart_item.item.id) %></a>
+</li>
