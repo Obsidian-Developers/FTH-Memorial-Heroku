@@ -5,7 +5,7 @@ ActiveAdmin.register ShopItem do
       f.input :name
       f.input :price, :label => "Price (format of $10.00)"
       f.input :details
-      f.input :category, :collection => ["Lorem", "Ipsum", "Dolor"]
+      f.input :category, :collection => ["flowers","gift_baskets","picture_frames","jewelry","sympathy_flowers","cametery_flowers","memorial_gifts"] 
       f.input :photo, as: :file
     end
     f.actions

@@ -3,7 +3,7 @@ class StaticDemoController < ApplicationController
   end
 
   def store
-  	@products = ShopItem.all
+  	@products = ShopItem.where(:category => params[:category])
   end
 
   def orders
