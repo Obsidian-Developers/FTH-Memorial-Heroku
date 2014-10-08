@@ -59,6 +59,7 @@
 		  z-index: 999;
 		}
 		</style>
+		
 
 	</head>
 	<body class="left-sidebar">
@@ -113,13 +114,13 @@
 					<div class="row double">
 						<div id="navcontainer" style="margin-top:-2.5em; width: 90%; padding-left: 10%;" >
 							<ul>
-								<li><a href="?category=flowers">Flowers</a></li>
-								<li><a href="?category=gift_baskets">Gift Baskets</a></li>
-								<li><a href="?category=picture_frames">Picture Frames</a></li>
-								<li><a href="?category=jewelry">Jewelry</a></li>
-								<li><a href="?category=sympathy_flowers">Sympathy Flowers</a></li>
-								<li><a href="?category=cametery_flowers">Cemetery Flowers</a></li>
-								<li><a href="?category=memorial_gifts">Memorial Gifts</a></li>
+								<li><a href="?category=flowers" id="flowers">Flowers</a></li>
+								<li><a href="?category=gift_baskets" id="gift_baskets">Gift Baskets</a></li>
+								<li><a href="?category=picture_frames" id="picture_frames">Picture Frames</a></li>
+								<li><a href="?category=jewelry" id="jewelry">Jewelry</a></li>
+								<li><a href="?category=sympathy_flowers" id="sympathy_flowers">Sympathy Flowers</a></li>
+								<li><a href="?category=cametery_flowers" id="cemetery_flowers">Cemetery Flowers</a></li>
+								<li><a href="?category=memorial_gifts" id="memorial_gifts">Memorial Gifts</a></li>
 
 							</ul>
 					
@@ -320,6 +321,24 @@
 					</div>
 				</div>
 			</div>
-
+    <script type="text/javascript">
+	$(document).ready(function(){ 
+		if (window.location.search.indexOf('category=flowers') > -1) {
+		    $('#flowers').css('text-decoration', 'underline');
+		} else if (window.location.search.indexOf('category=gift_baskets') > -1) {
+		    $('#gift_baskets').css('text-decoration', 'underline');		
+		} else if (window.location.search.indexOf('category=picture_frames') > -1) {
+		    $('#picture_frames').css('text-decoration', 'underline');		
+		} else if (window.location.search.indexOf('category=jewelry') > -1) {
+		    $('#jewelry').css('text-decoration', 'underline');		
+		} else if (window.location.search.indexOf('category=sympathy_flowers') > -1) {
+		    $('#sympathy_flowers').css('text-decoration', 'underline');		
+		} else if (window.location.search.indexOf('category=cemetery_flowers') > -1) {
+		    $('#cemetery_flowers').css('text-decoration', 'underline');		
+		} else if (window.location.search.indexOf('category=memorial_gifts') > -1) {
+		    $('#memorial_gifts').css('text-decoration', 'underline');		
+		}
+	}) 
+	</script>
 	</body>
 </html>
