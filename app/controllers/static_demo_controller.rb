@@ -4,9 +4,12 @@ class StaticDemoController < ApplicationController
 
   def store
   	@products = ShopItem.where(:category => params[:category])
+  	if params[:category].nil?
+  		#@products = ShopItem.where(:featured => true)
+  	end
   end
 
   def orders
-  	@orders = ShopOrder.all
+  	@orders = ShopOrder.where(:paid => true)
   end
 end

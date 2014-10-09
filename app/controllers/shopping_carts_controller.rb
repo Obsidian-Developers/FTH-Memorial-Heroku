@@ -65,6 +65,12 @@ class ShoppingCartsController < ApplicationController
 
   end
 
+  private
+
+  def final_params
+      params.require(:shop_order).permit!
+  end
+
 
 
 end

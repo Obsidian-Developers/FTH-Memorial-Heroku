@@ -15,7 +15,5 @@ class ApplicationController < ActionController::Base
     end
     session[:shopping_cart_id] = @shopping_cart.id
   end
-  def final_params
-      params.require(:shop_order).permit!
-  end
+  
 end
