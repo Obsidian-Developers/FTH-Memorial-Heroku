@@ -45,22 +45,39 @@ class ShoppingCartsController < ApplicationController
   #Prepare view
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     @items = @shopping_cart.shopping_cart_items
+    @cents = @shopping_cart.total * 100
   end
 
   def finalize
     puts "Begin finalization"   
   #Query Order from params
     @order = ShopOrder.find(params[:order])
-  #Update with form info
-    @order.update(final_params)
-    @order.paid = true
   #Query Attached Cart to set price
     cart = ShoppingCart.find(session[:shopping_cart_id])
+  #Generate integer value for Stripe price
+    cents_float = cart.total * 100
+    cents_int = cents_float.to_i
+  #Query Stripe servers to complete transaction
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :card  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => cents_int,
+      :description => 'Custom Casket Design',
+      :currency    => 'usd'
+    )
+  #Update with form info
+    @order.email = params[:stripeEmail]
+    @order.paid = true
     @order.price = cart.total
     @order.save
     cart.ordered = true
     cart.save
     puts "Order #{@order.id} finalized!"
+    redirect_to root_path
     
 
   end

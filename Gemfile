@@ -36,6 +36,8 @@ gem 'devise'
 
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 	
 
 group :development do

@@ -22,8 +22,13 @@
 
 <%= link_to "Edit Cart", shopping_cart_path %>
 <p>All good? Fill out the form below to checkout</p>
-
 <%= form_for @order, url: finalize_order_path(:order => @order.id) do |f| %>
-	<%= f.text_field :email, :placeholder => 'Email' %>
-	<%= f.submit "Submit Order for Processing" %>
+  <%= f.hidden_field :amount, :value => @shopping_cart.total * 100 %>
+	<!--<%= f.text_field :email, :placeholder => 'Email' %>
+	<%= f.submit "Submit Order for Processing" %>-->
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="FTH Purchase"
+          data-amount="<%= @cents.to_i %>"
+          ></script>
 <% end %>
