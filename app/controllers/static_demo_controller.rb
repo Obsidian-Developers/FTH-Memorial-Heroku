@@ -5,7 +5,7 @@ class StaticDemoController < ApplicationController
   def store
   	@products = ShopItem.where(:category => params[:category])
   	if params[:category].nil?
-  		#@products = ShopItem.where(:featured => true)
+  		@products = ShopItem.where(:featured => true)
   	end
   end
 

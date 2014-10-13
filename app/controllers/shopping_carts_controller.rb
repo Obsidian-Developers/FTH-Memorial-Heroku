@@ -66,7 +66,7 @@ class ShoppingCartsController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => cents_int,
-      :description => 'Custom Casket Design',
+      :description => "FTH Order #{@order.id}",
       :currency    => 'usd'
     )
   #Update with form info

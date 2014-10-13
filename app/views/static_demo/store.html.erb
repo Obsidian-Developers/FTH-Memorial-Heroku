@@ -114,6 +114,7 @@
 					<div class="row double">
 						<div id="navcontainer" style="margin-top:-2.5em; width: 90%; padding-left: 10%;" >
 							<ul>
+								<li><a href="/store" id="featured">Featured</a></li>
 								<li><a href="?category=flowers" id="flowers">Flowers</a></li>
 								<li><a href="?category=gift_baskets" id="gift_baskets">Gift Baskets</a></li>
 								<li><a href="?category=picture_frames" id="picture_frames">Picture Frames</a></li>
@@ -337,6 +338,8 @@
 		    $('#cemetery_flowers').css('text-decoration', 'underline');		
 		} else if (window.location.search.indexOf('category=memorial_gifts') > -1) {
 		    $('#memorial_gifts').css('text-decoration', 'underline');		
+		} else {
+			$('#featured').css('text-decoration', 'underline');
 		}
 	}) 
 	</script>

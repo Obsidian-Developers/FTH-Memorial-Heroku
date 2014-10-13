@@ -7,6 +7,7 @@ ActiveAdmin.register ShopItem do
       f.input :details
       f.input :category, :collection => ["flowers","gift_baskets","picture_frames","jewelry","sympathy_flowers","cametery_flowers","memorial_gifts"] 
       f.input :photo, as: :file
+      f.input :featured
     end
     f.actions
   end
@@ -15,7 +16,7 @@ ActiveAdmin.register ShopItem do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-   permit_params :name, :price, :category, :details, :photo
+   permit_params :name, :price, :category, :details, :photo, :featured
   #
   # or
   #
