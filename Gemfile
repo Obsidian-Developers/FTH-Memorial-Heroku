@@ -38,7 +38,7 @@ gem 'acts_as_shopping_cart', '~> 0.2.1'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
-	
+gem 'tzinfo-data'	
 
 group :development do
   gem 'better_errors'
