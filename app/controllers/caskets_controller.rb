@@ -60,6 +60,6 @@ class CasketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def casket_params
-      params.require(:casket).permit(:template, :text1, :image1, :image2, :image3, :image4, :image5)
+      params.require(:casket).permit!
     end
 end
