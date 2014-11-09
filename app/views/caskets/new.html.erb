@@ -37,20 +37,20 @@
   <script type="text/javascript" src="/js/dragdrop.js"></script>
   <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
-<body style="background-color: rgb(255, 255, 255); font-family:'Source Sans Pro', sans-serif">
+<body style="background-color: rgb(2, 2, 255); font-family:'Source Sans Pro', sans-serif">
   <div class="row">
-    <div class="eight columns" style="background-image:url('/img/caskettop.jpg'); background-repeat:no-repeat;">
+    <div class="eight columns" style="">
       <div class="row">
-        <div class="twelve columns" id="casket_template" style="margin-top:50px;">
-          <div class="row">
-            <div class="twelve columns">
+        <div class="twelve columns" id="casket_template" style="margin-top:50px; background-image:url('/img/caskettop.jpg'); background-repeat:no-repeat; box-shadow: 0px 1px 15px #888888; border-radius: 0.3em; width:65em; height:20em; background-size:100%;">
+          <div class="row" >
+            <div class="twelve columns" >
               <div id="div_header"> 
                 <h3 id="header_text" style="text-align:center;">Header Text</h1>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="twelve columns">
+            <div class="twelve columns" style="padding-left:6em; padding-top:2em">
               <div class="row" id="div_img_holders">
                 <div class="two columns" style="margin-right:15px;">
                   <div id="div_date1" style="text-align:center;">
@@ -97,13 +97,17 @@
           </div>
         </div>
       </div>
-      <div class="row" style="margin-top:100px;">
-        <div class="twelve columns" id="images" ondrop="drop0(event)" ondragover="allowDrop(event)" style="margin-top:15px; height:300px;">
+
+      <!-- Empty drag and drop space -->
+
+      <div class="row" style="margin-top:100px; height:">
+        <div class="twelve columns" id="images" ondrop="drop0(event)" ondragover="allowDrop(event)" style="margin-top:15px; height:150px; background-color:rgb(205,205,205); box-shadow: 0px 1px 15px #888888; border-radius: 0.3em; width:65em;">
         <h1 hidden="true">Hidden</h1>     
         </div>
       </div>
+
     </div>
-    <div class="four columns">
+    <div class="four columns" style="background-color:rgb(2,3,4); margin-left:200px">
       <form name="text_form" id="text_form">
         <br>
         <label id="label_header" name="label_header">
