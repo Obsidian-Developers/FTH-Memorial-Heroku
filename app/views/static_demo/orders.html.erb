@@ -21,14 +21,17 @@
 			<td>Shop Item Name</td>
 			<td>Quantity</td>
 			<td>Price</td>
+			<td>ID</td>
 		</tr>
 			<% @cart_items = ShoppingCartItem.where(:owner_id => order.shopping_cart_id) %>
 			<% @cart_items.each do |item| %>
-				<% if item.item_type == "ShopItem" then @act = ShopItem.find(item.item_id); @name = @act.name else  @name = "Custom Casket" end %>
+				<% if item.item_type == "ShopItem" then @act = ShopItem.find(item.item_id); @name = @act.name else  @act2 = CasketShopItem.find(item.item_id); @name = "Custom Casket #{@act2.id}" end %>
+				<!-- This is UNSAFE! Dont infer that CasketShopItem.id == Casket.id -->
 				<tr>
 					<td><%= @name %></td>
 					<td><%= item.quantity %></td>
 					<td><%=number_to_currency item.price %></td>
+					<td><%= item.id %></td>
 				</tr>
 			<% end %>
 		</tr>
