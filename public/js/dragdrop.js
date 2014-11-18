@@ -510,7 +510,7 @@
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_one()");
 		button.setAttribute("id", "Deny_img1");
-		var button_text = document.createTextNode("Deny");
+		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img1").appendChild(button);
 		confirmCount += 1;
@@ -540,6 +540,7 @@
 		button.setAttribute("onClick", "confirm_img_one()");
 		button.setAttribute("id", "confirm_img1");
 		var button_text = document.createTextNode("Confirm");
+		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img1").appendChild(button);
 		confirmCount -= 1;
@@ -562,7 +563,7 @@
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_two()");
 		button.setAttribute("id", "Deny_img2");
-		var button_text = document.createTextNode("Deny");
+		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img2").appendChild(button);
 		confirmCount += 1;
@@ -592,6 +593,7 @@
 		button.setAttribute("onClick", "confirm_img_two()");
 		button.setAttribute("id", "confirm_img2");
 		var button_text = document.createTextNode("Confirm");
+		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img2").appendChild(button);
 		confirmCount -= 1;
@@ -614,7 +616,7 @@
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_three()");
 		button.setAttribute("id", "Deny_img3");
-		var button_text = document.createTextNode("Deny");
+		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img3").appendChild(button);
 		confirmCount += 1;
@@ -644,6 +646,7 @@
 		button.setAttribute("onClick", "confirm_img_three()");
 		button.setAttribute("id", "confirm_img3");
 		var button_text = document.createTextNode("Confirm");
+		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img3").appendChild(button);
 		confirmCount -= 1;
@@ -666,7 +669,7 @@
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_four()");
 		button.setAttribute("id", "Deny_img4");
-		var button_text = document.createTextNode("Deny");
+		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img4").appendChild(button);
 		confirmCount += 1;
@@ -697,6 +700,7 @@
 		button.setAttribute("id", "confirm_img4");
 		var button_text = document.createTextNode("Confirm");
 		button.appendChild(button_text);
+		button.setAttribute("hidden", "true");
 		document.getElementById("div_img4").appendChild(button);
 		confirmCount -= 1;
 		submitCheck();
@@ -718,7 +722,7 @@
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_five()");
 		button.setAttribute("id", "Deny_img5");
-		var button_text = document.createTextNode("Deny");
+		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img5").appendChild(button);
 		confirmCount += 1;
@@ -748,6 +752,7 @@
 		button.setAttribute("onClick", "confirm_img_five()");
 		button.setAttribute("id", "confirm_img5");
 		var button_text = document.createTextNode("Confirm");
+		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img5").appendChild(button);
 		confirmCount -= 1;
