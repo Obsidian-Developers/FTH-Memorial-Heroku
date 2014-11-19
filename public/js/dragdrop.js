@@ -36,7 +36,6 @@
 		var img3_field = document.getElementById("img3_field").value;
 		var img4_field = document.getElementById("img4_field").value;
 		var img5_field = document.getElementById("img5_field").value;
-		alert(date1 + date2 + date3 + date4 + date5 + header + img1_field + img2_field + img3_field + img4_field + img5_field);
 		var date1FB = document.createElement("input");
 		date1FB.setAttribute("type", "text");
 		date1FB.setAttribute("hidden", "true");
