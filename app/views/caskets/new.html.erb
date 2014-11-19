@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +8,9 @@
       background-color:#f3f4f5;
       border: solid 1px #d2d7dc;
       border-radius: 0.35em;
-      width:49%;
-      padding: 17px;
+      width:50%;
+      margin-top:0.75em;
+      padding: 5px;
       color: #52575c;
       text-align: center;
       font-size: 20px;
@@ -47,53 +46,100 @@
       font-size: 25px;
       margin: 10px;
     }
-
-    ::-webkit-input-placeholder { /* WebKit browsers */
+    .input_div {
+      margin-top:-0.75em;
+    }
+    ::-webkit-input-placeholder {
         color:    #222;
     }
-    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    :-moz-placeholder {
        color:    #222;
        opacity:  1;
     }
-    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    ::-moz-placeholder {
        color:    #222;
        opacity:  1;
     }
-    :-ms-input-placeholder { /* Internet Explorer 10+ */
+    :-ms-input-placeholder {
        color:    #222;
     }
-
+    #form_div {
+      margin-left: -7rem;
+    }
+    #images {
+      margin-left:5rem;
+    }
     #casket {
         background-image:url('/img/caskettop.jpg'); 
         background-repeat:no-repeat; 
-        width:66em; 
+        width:60em; 
         height:22em; 
+        padding:0;
+        margin-right:-10rem;
         -webkit-background-size: cover; 
         -moz-background-size: cover; 
         -o-background-size: cover; 
         background-size: cover;
-
         /* border radius*/
         border-radius: 9px;
         -webkit-border-radius: 9px;
         -moz-border-radius: 9px;
-
         /* box shadow */
         box-shadow: 0px 0px 16px rgba(0,0,0,0.35);
         -webkit-box-shadow: 0px 0px 16px rgba(0,0,0,0.35);
         -moz-box-shadow: 0px 0px 16px rgba(0,0,0,0.35);
     }
-
   </style>
   <script type="text/javascript" src="/js/dragdrop.js"></script>
   <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 <body style="background-color: rgb(255, 255, 255); font-family:'Source Sans Pro', sans-serif">
- <!--  <div class="row">
-    <h1>Custom Casket</h1>
-  </div> -->
   <div class="row" style="margin-top:5em">
-    <div class="two columns" id="casket">
+    <div class="three columns" id="form_div">
+      <%= form_for(@casket) do |f| %>
+      <!-- Still to do: Implement hidden-field setting via dragdrop.js -->
+        <input class="input" id="date1_field" name="casket[date1]" hidden="true" value="">
+        <input class="input" id="date2_field" name="casket[date2]" hidden="true" value="">
+        <input class="input" id="date3_field" name="casket[date3]" hidden="true" value="">
+        <input class="input" id="date4_field" name="casket[date4]" hidden="true" value="">
+        <input class="input" id="date5_field" name="casket[date5]" hidden="true" value="">
+        <input class="input" id="header_field" name="casket[header1]" hidden="true" value="">
+        <br>
+        <div id="div_img1" class="input_div">
+          <%= f.file_field :image1, :id => 'img_input1', :onchange => 'imgchange("confirm_img1")' %>
+          <input class="input" id="img1_field" name="casket[locale_1]" hidden="true" value="">
+          <button id="confirm_img1" hidden="true" onClick="confirm_img_one()">Confirm</button>
+        </div>
+        <br>
+        <div id="div_img2" class="input_div">
+          <%= f.file_field :image2, :id => 'img_input2', :onchange => 'imgchange("confirm_img2")' %>
+          <input class="input" id="img2_field" name="casket[locale_2]" hidden="true" value="">
+          <button id="confirm_img2" hidden="true" onClick="confirm_img_two()">Confirm</button>
+        </div>
+        <br>
+        <div id="div_img3" class="input_div">
+          <%= f.file_field :image3, :id => 'img_input3', :onchange => 'imgchange("confirm_img3")' %>
+          <input class="input" id="img3_field" name="casket[locale_3]" hidden="true" value="">
+          <button id="confirm_img3" hidden="true" onClick="confirm_img_three()">Confirm</button>
+        </div>
+        <br>
+        <div id="div_img4" class="input_div">
+          <%= f.file_field :image4, :id => 'img_input4', :onchange => 'imgchange("confirm_img4")' %>
+          <input class="input" id="img4_field" name="casket[locale_4]" hidden="true" value="">
+          <button id="confirm_img4" hidden="true" onClick="confirm_img_four()">Confirm</button>
+        </div>
+        <br>
+        <div id="div_img5" class="input_div">
+          <%= f.file_field :image5, :id => 'img_input5', :onchange => 'imgchange("confirm_img5")' %>
+          <input class="input" id="img5_field" name="casket[locale_5]" hidden="true" value="">
+          <button id="confirm_img5" hidden="true" onClick="confirm_img_five()">Confirm</button>
+        </div>
+        <br>
+        <div id="div_submit">
+        </div>
+      <% end %>
+    </div>
+    <div class="nine columns" id="casket">
       <div class="row">
         <div class="twelve columns" id="casket_template" style="margin-top:65px;">
           <div class="row">
@@ -151,55 +197,11 @@
           </div>
         </div>
       </div>
-      <div class="row" style="margin-top:200px;">
+      <div class="row" style="margin-top:320px;">
         <div class="twelve columns" id="images" ondrop="drop0(event)" ondragover="allowDrop(event)" style="margin-top:55px; height:300px;">
-        <h1 hidden="true">Hidden</h1>     
+          <h1 hidden="true">Hidden</h1>     
         </div>
       </div>
-    </div>
-    <div class="four columns" id="form_div">
-      <%= form_for(@casket) do |f| %>
-      <!-- Still to do: Implement hidden-field setting via dragdrop.js -->
-        <input class="input" id="date1_field" name="casket[date1]" hidden="true" value="">
-        <input class="input" id="date2_field" name="casket[date2]" hidden="true" value="">
-        <input class="input" id="date3_field" name="casket[date3]" hidden="true" value="">
-        <input class="input" id="date4_field" name="casket[date4]" hidden="true" value="">
-        <input class="input" id="date5_field" name="casket[date5]" hidden="true" value="">
-        <input class="input" id="header_field" name="casket[header1]" hidden="true" value="">
-        <br>
-        <div id="div_img1">
-          <%= f.file_field :image1, :id => 'img_input1', :onchange => 'imgchange("confirm_img1")' %>
-          <input class="input" id="img1_field" name="casket[locale_1]" hidden="true" value="">
-          <button id="confirm_img1" hidden="true" onClick="confirm_img_one()">Confirm</button>
-        </div>
-        <br>
-        <div id="div_img2">
-          <%= f.file_field :image2, :id => 'img_input2', :onchange => 'imgchange("confirm_img2")' %>
-          <input class="input" id="img2_field" name="casket[locale_2]" hidden="true" value="">
-          <button id="confirm_img2" hidden="true" onClick="confirm_img_two()">Confirm</button>
-        </div>
-        <br>
-        <div id="div_img3">
-          <%= f.file_field :image3, :id => 'img_input3', :onchange => 'imgchange("confirm_img3")' %>
-          <input class="input" id="img3_field" name="casket[locale_3]" hidden="true" value="">
-          <button id="confirm_img3" hidden="true" onClick="confirm_img_three()">Confirm</button>
-        </div>
-        <br>
-        <div id="div_img4">
-          <%= f.file_field :image4, :id => 'img_input4', :onchange => 'imgchange("confirm_img4")' %>
-          <input class="input" id="img4_field" name="casket[locale_4]" hidden="true" value="">
-          <button id="confirm_img4" hidden="true" onClick="confirm_img_four()">Confirm</button>
-        </div>
-        <br>
-        <div id="div_img5">
-          <%= f.file_field :image5, :id => 'img_input5', :onchange => 'imgchange("confirm_img5")' %>
-          <input class="input" id="img5_field" name="casket[locale_5]" hidden="true" value="">
-          <button id="confirm_img5" hidden="true" onClick="confirm_img_five()">Confirm</button>
-        </div>
-        <br>
-        <div id="div_submit">
-        </div>
-      <% end %>
     </div>
   </div>
   </body>
