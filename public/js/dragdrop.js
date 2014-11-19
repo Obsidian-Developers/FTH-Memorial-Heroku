@@ -134,10 +134,36 @@
     	dropCount5 = 0;
 	}
 	function drop0(ev) {
+		var img_div = document.createElement("div");
+		img_div.setAttribute("class", "two columns");
+		if(currentid === "img1"){
+			img_div.setAttribute("id", "preview1_div");
+			document.getElementById("img1_field").value = "0";
+		}
+		else if(currentid === "img2") {
+			img_div.setAttribute("id", "preview2_div");
+			document.getElementById("img2_field").value = "0";
+		}
+		else if(currentid === "img3") {
+			img_div.setAttribute("id", "preview3_div");
+			document.getElementById("img3_field").value = "0";			
+		}
+		else if(currentid === "img4") {
+			img_div.setAttribute("id", "preview4_div");
+			document.getElementById("img4_field").value = "0";			
+		}
+		else if(currentid === "img5") {
+			img_div.setAttribute("id", "preview5_div");
+			document.getElementById("img5_field").value = "0";			
+		}
+		else {
+			console.log("Error");
+		}
     	ev.preventDefault();
     	var data = ev.dataTransfer.getData("Text");
     	document.getElementById(data).setAttribute("style", "height:100px; width:100px; border-radius:0px;");
-    	ev.target.appendChild(document.getElementById(data));
+		img_div.appendChild(document.getElementById(data));
+    	ev.target.appendChild(img_div);
 	}
 	function switch_drop1(ev) {
 		if(currentid === "img1") {
@@ -152,6 +178,7 @@
 		    	dropCount1 = 1;
 			}
 			document.getElementById("img1_field").value = "1";
+    		document.getElementById("images").removeChild(document.getElementById("preview1_div"));
 		}
 		else if(currentid === "img2"){
 			ev.preventDefault();
@@ -165,6 +192,7 @@
 		    	dropCount2 = 1;
 			}
 			document.getElementById("img2_field").value = "1";
+    		document.getElementById("images").removeChild(document.getElementById("preview2_div"));
 		}
 		else if(currentid === "img3"){
 			ev.preventDefault();
@@ -178,6 +206,7 @@
 		    	dropCount3 = 1;
 			}
 			document.getElementById("img3_field").value = "1";
+    		document.getElementById("images").removeChild(document.getElementById("preview3_div"));
 		}
 		else if(currentid === "img4"){
 			ev.preventDefault();
@@ -191,6 +220,7 @@
 		    	dropCount4 = 1;
 			}
 			document.getElementById("img4_field").value = "1";
+    		document.getElementById("images").removeChild(document.getElementById("preview4_div"));
 
 		}
 		else if(currentid === "img5"){
@@ -205,6 +235,7 @@
 		    	dropCount5 = 1;
 			}
 			document.getElementById("img5_field").value = "1";
+    		document.getElementById("images").removeChild(document.getElementById("preview5_div"));
 		}
 		else {
 			console.log("Error");
@@ -223,6 +254,7 @@
 		    	dropCount1 = 2;
 			}
 			document.getElementById("img1_field").value = "2";
+    		document.getElementById("images").removeChild(document.getElementById("preview1_div"));
 		}
 		else if(currentid === "img2"){
 			ev.preventDefault();
@@ -236,6 +268,7 @@
 		    	dropCount2 = 2;
 			}
 			document.getElementById("img2_field").value = "2";
+    		document.getElementById("images").removeChild(document.getElementById("preview2_div"));
 		}
 		else if(currentid === "img3"){
 			ev.preventDefault();
@@ -249,6 +282,7 @@
 		    	dropCount3 = 2;
 			}
 			document.getElementById("img3_field").value = "2";
+    		document.getElementById("images").removeChild(document.getElementById("preview3_div"));
 
 		}
 		else if(currentid === "img4"){
@@ -263,6 +297,7 @@
 		    	dropCount4 = 2;
 			}
 			document.getElementById("img4_field").value = "2";
+    		document.getElementById("images").removeChild(document.getElementById("preview4_div"));
 
 		}
 		else if(currentid === "img5"){
@@ -277,6 +312,7 @@
 		    	dropCount5 = 2;
 			}
 			document.getElementById("img5_field").value = "2";
+    		document.getElementById("images").removeChild(document.getElementById("preview5_div"));
 		}
 		else {
 			console.log("Error");
@@ -295,6 +331,7 @@
 		    	dropCount1 = 3;
 			}
 			document.getElementById("img1_field").value = "3";
+    		document.getElementById("images").removeChild(document.getElementById("preview1_div"));
 		}
 		else if(currentid === "img2"){
 			ev.preventDefault();
@@ -308,6 +345,7 @@
 		    	dropCount2 = 3;
 			}
 			document.getElementById("img2_field").value = "3";
+    		document.getElementById("images").removeChild(document.getElementById("preview2_div"));
 		}
 		else if(currentid === "img3"){
 			ev.preventDefault();
@@ -321,6 +359,7 @@
 		    	dropCount3 = 3;
 			}
 			document.getElementById("img3_field").value = "3";
+    		document.getElementById("images").removeChild(document.getElementById("preview3_div"));
 
 		}
 		else if(currentid === "img4"){
@@ -335,6 +374,7 @@
 		    	dropCount4 = 3;
 			}
 			document.getElementById("img4_field").value = "3";
+    		document.getElementById("images").removeChild(document.getElementById("preview4_div"));
 		}
 		else if(currentid === "img5"){
 			ev.preventDefault();
@@ -348,6 +388,7 @@
 		    	dropCount5 = 3;
 			}
 			document.getElementById("img5_field").value = "3";
+    		document.getElementById("images").removeChild(document.getElementById("preview5_div"));
 		}
 		else {
 			console.log("Error");
@@ -366,6 +407,7 @@
 		    	dropCount1 = 4;
 			}
 			document.getElementById("img1_field").value = "4";
+    		document.getElementById("images").removeChild(document.getElementById("preview1_div"));
 		}
 		else if(currentid === "img2"){
 			ev.preventDefault();
@@ -379,6 +421,7 @@
 		    	dropCount2 = 4;
 			}
 			document.getElementById("img2_field").value = "4";
+    		document.getElementById("images").removeChild(document.getElementById("preview2_div"));
 		}
 		else if(currentid === "img3"){
 			ev.preventDefault();
@@ -392,6 +435,7 @@
 		    	dropCount3 = 4;
 			}
 			document.getElementById("img3_field").value = "4";
+    		document.getElementById("images").removeChild(document.getElementById("preview3_div"));
 		}
 		else if(currentid === "img4"){
 			ev.preventDefault();
@@ -405,6 +449,7 @@
 		    	dropCount4 = 4;
 			}
 			document.getElementById("img4_field").value = "4";
+    		document.getElementById("images").removeChild(document.getElementById("preview4_div"));
 		}
 		else if(currentid === "img5"){
 			ev.preventDefault();
@@ -418,6 +463,7 @@
 		    	dropCount5 = 4;
 			}
 			document.getElementById("img5_field").value = "4";
+    		document.getElementById("images").removeChild(document.getElementById("preview5_div"));
 		}
 		else {
 			console.log("Error");
@@ -436,6 +482,7 @@
 		    	dropCount1 = 5;
 			}
 			document.getElementById("img1_field").value = "5";
+    		document.getElementById("images").removeChild(document.getElementById("preview1_div"));
 		}
 		else if(currentid === "img2"){
 			ev.preventDefault();
@@ -449,6 +496,7 @@
 		    	dropCount2 = 5;
 			}
 			document.getElementById("img2_field").value = "5";
+    		document.getElementById("images").removeChild(document.getElementById("preview2_div"));
 		}
 		else if(currentid === "img3"){
 			ev.preventDefault();
@@ -462,6 +510,7 @@
 		    	dropCount3 = 5;
 			}
 			document.getElementById("img3_field").value = "5";
+    		document.getElementById("images").removeChild(document.getElementById("preview3_div"));
 		}
 		else if(currentid === "img4"){
 			ev.preventDefault();
@@ -475,6 +524,7 @@
 		    	dropCount4 = 5;
 			}
 			document.getElementById("img4_field").value = "5";
+    		document.getElementById("images").removeChild(document.getElementById("preview4_div"));
 		}
 		else if(currentid === "img5"){
 			ev.preventDefault();
@@ -488,6 +538,7 @@
 		    	dropCount5 = 5;
 			}
 			document.getElementById("img5_field").value = "5";
+    		document.getElementById("images").removeChild(document.getElementById("preview5_div"));
 		}
 		else {
 			console.log("Error");
@@ -495,6 +546,9 @@
 	}
 //Image 1
 	function confirm_img_one() {
+		var img_div = document.createElement("div");
+		img_div.setAttribute("class", "two columns");
+		img_div.setAttribute("id", "preview1_div");
 		var img = document.createElement("img");
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
@@ -505,7 +559,8 @@
 		img.setAttribute("id", "img1");
 		img.setAttribute("draggable", "true");
 		img.setAttribute("ondragstart", "drag1(event)");
-		document.getElementById("images").appendChild(img); 
+		img_div.appendChild(img); 
+		document.getElementById("images").appendChild(img_div);
 		document.getElementById("div_img1").removeChild(document.getElementById("confirm_img1"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_one()");
@@ -533,7 +588,7 @@
 			document.getElementById("img_holder5").removeChild(document.getElementById("img1"));
 		}
 		else {
-			document.getElementById("images").removeChild(document.getElementById("img1"));
+			document.getElementById("images").removeChild(document.getElementById("preview1_div"));
 		}
 		document.getElementById("div_img1").removeChild(document.getElementById("Deny_img1"));
 		var button = document.createElement("button");
@@ -548,6 +603,9 @@
 	}
 //Image 2
 	function confirm_img_two() {
+		var img_div = document.createElement("div");
+		img_div.setAttribute("class", "two columns");
+		img_div.setAttribute("id", "preview2_div");
 		var img = document.createElement("img");
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
@@ -558,7 +616,8 @@
 		img.setAttribute("id", "img2");
 		img.setAttribute("draggable", "true");
 		img.setAttribute("ondragstart", "drag2(event)");
-		document.getElementById("images").appendChild(img); ;
+		img_div.appendChild(img); 
+		document.getElementById("images").appendChild(img_div);
 		document.getElementById("div_img2").removeChild(document.getElementById("confirm_img2"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_two()");
@@ -586,7 +645,7 @@
 			document.getElementById("img_holder5").removeChild(document.getElementById("img2"));
 		}
 		else {
-			document.getElementById("images").removeChild(document.getElementById("img2"));
+			document.getElementById("images").removeChild(document.getElementById("preview2_div"));
 		}
 		document.getElementById("div_img2").removeChild(document.getElementById("Deny_img2"));
 		var button = document.createElement("button");
@@ -601,6 +660,9 @@
 	}
 //Image 3
 	function confirm_img_three() {
+		var img_div = document.createElement("div");
+		img_div.setAttribute("class", "two columns");
+		img_div.setAttribute("id", "preview3_div");
 		var img = document.createElement("img");
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
@@ -611,7 +673,8 @@
 		img.setAttribute("id", "img3");
 		img.setAttribute("draggable", "true");
 		img.setAttribute("ondragstart", "drag3(event)");
-		document.getElementById("images").appendChild(img); 
+		img_div.appendChild(img); 
+		document.getElementById("images").appendChild(img_div);
 		document.getElementById("div_img3").removeChild(document.getElementById("confirm_img3"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_three()");
@@ -639,7 +702,7 @@
 			document.getElementById("img_holder5").removeChild(document.getElementById("img13"));
 		}
 		else {
-			document.getElementById("images").removeChild(document.getElementById("img3"));
+			document.getElementById("images").removeChild(document.getElementById("preview3_div"));
 		}
 		document.getElementById("div_img3").removeChild(document.getElementById("Deny_img3"));
 		var button = document.createElement("button");
@@ -654,6 +717,9 @@
 	}
 //Image 4
 	function confirm_img_four() {
+		var img_div = document.createElement("div");
+		img_div.setAttribute("class", "two columns");
+		img_div.setAttribute("id", "preview4_div");
 		var img = document.createElement("img");
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
@@ -664,7 +730,8 @@
 		img.setAttribute("id", "img4");
 		img.setAttribute("draggable", "true");
 		img.setAttribute("ondragstart", "drag4(event)");
-		document.getElementById("images").appendChild(img); 
+		img_div.appendChild(img); 
+		document.getElementById("images").appendChild(img_div);
 		document.getElementById("div_img4").removeChild(document.getElementById("confirm_img4"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_four()");
@@ -692,7 +759,7 @@
 			document.getElementById("img_holder5").removeChild(document.getElementById("img4"));
 		}
 		else {
-			document.getElementById("images").removeChild(document.getElementById("img4"));
+			document.getElementById("images").removeChild(document.getElementById("preview4_div"));
 		}
 		document.getElementById("div_img4").removeChild(document.getElementById("Deny_img4"));
 		var button = document.createElement("button");
@@ -707,6 +774,9 @@
 	}
 //Image 5
 	function confirm_img_five() {
+		var img_div = document.createElement("div");
+		img_div.setAttribute("class", "two columns");
+		img_div.setAttribute("id", "preview5_div");
 		var img = document.createElement("img");
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
@@ -717,7 +787,8 @@
 		img.setAttribute("id", "img5");
 		img.setAttribute("draggable", "true");
 		img.setAttribute("ondragstart", "drag5(event)");
-		document.getElementById("images").appendChild(img); 
+		img_div.appendChild(img); 
+		document.getElementById("images").appendChild(img_div);
 		document.getElementById("div_img5").removeChild(document.getElementById("confirm_img5"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "Deny_img_five()");
@@ -747,7 +818,7 @@
 		else {
 			document.getElementById("images").removeChild(document.getElementById("img5"));
 		}
-		document.getElementById("div_img5").removeChild(document.getElementById("Deny_img5"));
+		document.getElementById("div_img5").removeChild(document.getElementById("preview5_div"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "confirm_img_five()");
 		button.setAttribute("id", "confirm_img5");
