@@ -164,6 +164,8 @@
     	document.getElementById(data).setAttribute("style", "height:100px; width:100px; border-radius:0px;");
 		img_div.appendChild(document.getElementById(data));
     	ev.target.appendChild(img_div);
+    	confirmCount -= 1;
+    	submitCheck();
 	}
 	function switch_drop1(ev) {
 		if(currentid === "img1") {
@@ -240,6 +242,8 @@
 		else {
 			console.log("Error");
 		}
+		confirmCount += 1;
+		submitCheck();
 	}
 	function switch_drop2(ev) {
 		if(currentid === "img1") {
@@ -317,6 +321,8 @@
 		else {
 			console.log("Error");
 		}
+		confirmCount += 1;
+		submitCheck();
 	}
 	function switch_drop3(ev) {
 		if(currentid === "img1") {
@@ -393,6 +399,8 @@
 		else {
 			console.log("Error");
 		}
+		confirmCount += 1;
+		submitCheck();
 	}
 	function switch_drop4(ev) {
 		if(currentid === "img1"){
@@ -468,6 +476,8 @@
 		else {
 			console.log("Error");
 		}
+		confirmCount += 1;
+		submitCheck();
 	}
 	function switch_drop5(ev) {
 		if(currentid === "img1") {
@@ -543,6 +553,8 @@
 		else {
 			console.log("Error");
 		}
+		confirmCount += 1;
+		submitCheck();
 	}
 //Image 1
 	function confirm_img_one() {
@@ -568,7 +580,6 @@
 		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img1").appendChild(button);
-		confirmCount += 1;
 		submitCheck();
 	}
 	function Deny_img_one(){
@@ -625,7 +636,6 @@
 		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img2").appendChild(button);
-		confirmCount += 1;
 		submitCheck();
 	}
 	function Deny_img_two(){
@@ -655,7 +665,6 @@
 		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img2").appendChild(button);
-		confirmCount -= 1;
 		submitCheck();
 	}
 //Image 3
@@ -682,7 +691,6 @@
 		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img3").appendChild(button);
-		confirmCount += 1;
 		submitCheck();
 	}
 	function Deny_img_three(){
@@ -739,7 +747,6 @@
 		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img4").appendChild(button);
-		confirmCount += 1;
 		submitCheck();
 	}
 	function Deny_img_four(){
@@ -796,7 +803,6 @@
 		var button_text = document.createTextNode("Delete");
 		button.appendChild(button_text);
 		document.getElementById("div_img5").appendChild(button);
-		confirmCount += 1;
 		submitCheck();
 	}
 	function Deny_img_five(){
@@ -816,9 +822,9 @@
 			document.getElementById("img_holder5").removeChild(document.getElementById("img5"));
 		}
 		else {
-			document.getElementById("images").removeChild(document.getElementById("img5"));
+			document.getElementById("images").removeChild(document.getElementById("preview5_div"));
 		}
-		document.getElementById("div_img5").removeChild(document.getElementById("preview5_div"));
+		document.getElementById("div_img5").removeChild(document.getElementById("Deny_img5"));
 		var button = document.createElement("button");
 		button.setAttribute("onClick", "confirm_img_five()");
 		button.setAttribute("id", "confirm_img5");
