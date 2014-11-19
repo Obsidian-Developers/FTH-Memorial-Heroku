@@ -12,4 +12,7 @@ class StaticDemoController < ApplicationController
   def orders
   	@orders = ShopOrder.where(:paid => true)
   end
+
+  def casket_holder
+  end
 end

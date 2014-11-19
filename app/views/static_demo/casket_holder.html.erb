@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>From the Heart Memorial</title>
+		<base target="_parent" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<%= csrf_meta_tags %> 
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery.dropotron.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/jquery.onvisible.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-layers.min.js"></script>
+		<script src="/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="/css/skel.css" />
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/style-desktop.css" />
+			<link rel="stylesheet" href="/css/style-noscript.css" />
+		</noscript>
+		<link rel="stylesheet" type="text/css" href="/css/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="/css/css/component.css" />
+		<script src="/js/js/modernizr.custom.js"></script>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<style type="text/css">
+		li.tooltips {
+		  position: relative;
+		  display: inline;
+		}
+		li.tooltips span {
+		  position: absolute;
+		  width:140px;
+		  color: #FFFFFF;
+		  background: #000000;
+		  height: 30px;
+		  line-height: 30px;
+		  text-align: center;
+		  visibility: hidden;
+		  border-radius: 6px;
+		}
+		li.tooltips span:after {
+		  content: '';
+		  position: absolute;
+		  bottom: 100%;
+		  left: 50%;
+		  margin-left: -8px;
+		  width: 0; height: 0;
+		  border-bottom: 8px solid #000000;
+		  border-right: 8px solid transparent;
+		  border-left: 8px solid transparent;
+		}
+		li:hover.tooltips span {
+		  visibility: visible;
+		  opacity: 0.8;
+		  top: 30px;
+		  left: 50%;
+		  margin-left: -76px;
+		  z-index: 999;
+		}
+		</style>
+		
+
+	</head>
+	<body class="left-sidebar">
+
+		<!-- Header -->
+			<div id="header">
+
+				<!-- Inner -->
+					<!-- <div class="inner">
+						<header>
+							<h1>Shop</h1>
+						</header>
+					</div> -->
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/">Home</a></li>
+							
+						<!-- 	<li>
+								<a href="">Dropdown</a>
+								<ul>
+									<li><a href="#">Lorem ipsum dolor</a></li>
+									<li><a href="#">Magna phasellus</a></li>
+									<li><a href="#">Etiam dolore nisl</a></li>
+									<li>
+										<a href="">And a submenu &hellip;</a>
+										<ul>
+											<li><a href="#">Lorem ipsum dolor</a></li>
+											<li><a href="#">Phasellus consequat</a></li>
+											<li><a href="#">Magna phasellus</a></li>
+											<li><a href="#">Etiam dolore nisl</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Veroeros feugiat</a></li>
+								</ul>
+							</li> -->
+
+							<li><a href="store.html">Shop</a></li>
+							<li class="tooltips"><!--<a href="right-sidebar.html">-->Custom Caskets<span>Coming Soon</span></a></li>
+							<li class="tooltips"><!--<a href="no-sidebar.html">-->Custom Tombstones<span>Coming Soon</span></a></li>
+							<li><a href="/shopping_cart">Shopping Cart (<%= @shopping_cart.shopping_cart_items.count %> items)</a></li>
+						</ul>
+					</nav>
+
+			</div>
+			
+
+
+
+    
+	</body>
+</html>

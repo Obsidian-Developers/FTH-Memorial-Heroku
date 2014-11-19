@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'static_demo/home'
   get 'store' => 'static_demo#store'
   get 'order_index' => 'static_demo#orders'
+  get 'casket_maker' => 'static_demo#casket_holder'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
