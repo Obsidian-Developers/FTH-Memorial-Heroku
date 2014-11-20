@@ -4,9 +4,14 @@
 	var dropCount4 = 0;
 	var dropCount5 = 0;
 	var currentid = "";
-	var confirmCount = 0;
 	function submitCheck() {
-		if(confirmCount === 5) {
+		if(img_holder1.hasChildNodes() && img_holder2.hasChildNodes() && img_holder3.hasChildNodes() && img_holder4.hasChildNodes && img_holder5.hasChildNodes()) {
+			var download = document.createElement("button");
+			var download_text = document.createTextNode("Download");
+			download.appendChild(download_text);
+			download.setAttribute("id", "download_form");
+			download.setAttribute("onClick", "render()");
+			document.getElementById("form_div").appendChild(download);
 			var submit = document.createElement("button");
 			var submit_text = document.createTextNode("Submit");
 			submit.appendChild(submit_text);
@@ -16,6 +21,7 @@
 		}
 		else {
 			if(document.getElementById("div_submit").hasChildNodes()) {
+				document.getElementById("form_div").removeChild(document.getElementById("download_form"));
 				document.getElementById("div_submit").removeChild(document.getElementById("submit_form"));
 				console.log("Field Empty");
 			}
@@ -104,6 +110,32 @@
 		document.getElementById("form_div").appendChild(img5FB);
 		console.log("Submitted");
 	}
+	function render() {
+		var date1 = document.getElementById("img_holder1_text").value;
+		var date2 = document.getElementById("img_holder2_text").value;
+		var date3 = document.getElementById("img_holder3_text").value;
+		var date4 = document.getElementById("img_holder4_text").value;
+		var date5 = document.getElementById("img_holder5_text").value;
+		var header = document.getElementById("header_text").value;
+		var content = date1  + " " + date2 + " "  + date3 + " "  + date4 + " "  + date5 + " "  + header
+		var canvas = document.getElementById("rendered_img");
+		var ctx = canvas.getContext("2d");
+		var img1 = document.getElementById("img1");
+		var img2 = document.getElementById("img2");	
+		var img3 = document.getElementById("img3");	
+		var img4 = document.getElementById("img4");	
+		var img5 = document.getElementById("img5");	
+		var width = 50;
+		var height = 25;
+		ctx.strokeText(content, 10, 10);
+		ctx.drawImage(img1, 10, 20, width, height);
+		ctx.drawImage(img2, 10, 45, width, height);
+		ctx.drawImage(img3, 10, 70, width, height);
+		ctx.drawImage(img4, 10, 95, width, height);
+		ctx.drawImage(img5, 10, 120, width, height);
+		var data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+		window.location.href = data;
+	}
 	function allowDrop(ev) {
 		ev.preventDefault();
 	}
@@ -163,7 +195,6 @@
     	document.getElementById(data).setAttribute("style", "height:100px; width:100px; border-radius:0px;");
 		img_div.appendChild(document.getElementById(data));
     	ev.target.appendChild(img_div);
-    	confirmCount -= 1;
     	submitCheck();
 	}
 	function switch_drop1(ev) {
@@ -241,7 +272,6 @@
 		else {
 			console.log("Error");
 		}
-		confirmCount += 1;
 		submitCheck();
 	}
 	function switch_drop2(ev) {
@@ -320,7 +350,6 @@
 		else {
 			console.log("Error");
 		}
-		confirmCount += 1;
 		submitCheck();
 	}
 	function switch_drop3(ev) {
@@ -398,7 +427,6 @@
 		else {
 			console.log("Error");
 		}
-		confirmCount += 1;
 		submitCheck();
 	}
 	function switch_drop4(ev) {
@@ -475,7 +503,6 @@
 		else {
 			console.log("Error");
 		}
-		confirmCount += 1;
 		submitCheck();
 	}
 	function switch_drop5(ev) {
@@ -552,7 +579,6 @@
 		else {
 			console.log("Error");
 		}
-		confirmCount += 1;
 		submitCheck();
 	}
 //Image 1
@@ -608,7 +634,6 @@
 		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img1").appendChild(button);
-		confirmCount -= 1;
 		submitCheck();
 	}
 //Image 2
@@ -719,7 +744,6 @@
 		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img3").appendChild(button);
-		confirmCount -= 1;
 		submitCheck();
 	}
 //Image 4
@@ -775,7 +799,6 @@
 		button.appendChild(button_text);
 		button.setAttribute("hidden", "true");
 		document.getElementById("div_img4").appendChild(button);
-		confirmCount -= 1;
 		submitCheck();
 	}
 //Image 5
@@ -831,7 +854,6 @@
 		button.setAttribute("hidden", "true");
 		button.appendChild(button_text);
 		document.getElementById("div_img5").appendChild(button);
-		confirmCount -= 1;
 		submitCheck();
 	}
 	function imgchange(imgclass) {
